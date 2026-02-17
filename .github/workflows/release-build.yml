@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: frappe_docker
-          file: frappe_docker/images/custom/Containerfile
+          file: frappe_docker/images/layered/Containerfile
           platforms: linux/amd64
           push: true
           tags: |
