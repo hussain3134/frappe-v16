@@ -1,0 +1,33 @@
+name: Monthly version bump
+
+on:
+  schedule:
+    - cron: "0 3 */14 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Compute latest versions
+        run: python .github/scripts/compute_latest_versions.py
+
+      - name: Create PR if changed
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: chore/monthly-bump
+          title: "chore: bump app versions"
+          commit-message: "chore: bump app versions"
+          delete-branch: true
+

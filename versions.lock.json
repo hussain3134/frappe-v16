@@ -1,0 +1,8 @@
+{
+  "erpnext": "v16.0.0",
+  "hrms": "v16.0.0",
+  "india_compliance": "v16.0.0",
+  "crm": "v1.0.0",
+  "ecommerce_integrations_ref": "refs/heads/version-16",
+  "ecommerce_integrations_sha": ""
+}
