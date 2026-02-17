@@ -47,7 +47,7 @@ jobs:
         with:
           context: frappe_docker
           file: frappe_docker/images/custom/Containerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:v16-latest
