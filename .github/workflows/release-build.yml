@@ -50,7 +50,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:v16-latest
+            ${{ env.IMAGE_NAME }}:version-16
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
           build-args: |
             APPS_JSON_BASE64=${{ env.APPS_JSON_BASE64 }}
