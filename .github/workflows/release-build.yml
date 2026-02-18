@@ -1,4 +1,4 @@
-name: Production Build & Deploy
+name: Release Build
 
 on:
   push:
@@ -18,25 +18,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout builder repo
+        uses: actions/checkout@v5
 
-      - uses: actions/checkout@v6
+      - name: Checkout frappe_docker
+        uses: actions/checkout@v5
         with:
           repository: frappe/frappe_docker
           path: frappe_docker
 
-      - uses: actions/setup-python@v6
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
-      - name: Generate apps.json
+      - name: Generate APPS_JSON_BASE64
         run: python .github/scripts/render_apps_json.py
 
-      - uses: docker/setup-qemu-action@v3
+      - name: Setup Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - uses: docker/setup-buildx-action@v3
-
-      - uses: docker/login-action@v3
+      - name: Login to GHCR
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -49,12 +52,8 @@ jobs:
           file: frappe_docker/images/layered/Containerfile
           platforms: linux/amd64
           push: true
-          tags: |
-            ${{ env.IMAGE_NAME }}:version-16
-            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          tags: ${{ env.IMAGE_NAME }}:version-16
           build-args: |
+            FRAPPE_PATH=https://github.com/frappe/frappe
+            FRAPPE_BRANCH=version-16
             APPS_JSON_BASE64=${{ env.APPS_JSON_BASE64 }}
-
-      - name: Trigger Dokploy Deploy
-        run: curl -X POST "${{ secrets.DOKPLOY_WEBHOOK_URL }}"
-
