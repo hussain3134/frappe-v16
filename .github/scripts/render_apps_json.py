@@ -13,10 +13,10 @@ def main() -> int:
     apps = [
         {"url": "https://github.com/frappe/erpnext", "tag": versions["erpnext"]},
         {"url": "https://github.com/frappe/hrms", "tag": versions["hrms"]},
-        {"url": "https://github.com/resilient-tech/india-compliance", "tag": versions["india_compliance"]},
         {"url": "https://github.com/frappe/crm", "tag": versions["crm"]},
-        # ecommerce_integrations: track branch until v16 tags exist
+        # ecommerce_integrations & india_compliance : track branch until v16 tags exist
         {"url": "https://github.com/frappe/ecommerce_integrations", "branch": "version-16"},
+        {"url": "https://github.com/resilient-tech/india-compliance", "branch": "version-16"},
     ]
 
     # compact JSON (avoid whitespace differences)
