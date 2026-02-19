@@ -68,7 +68,8 @@ def main():
     latest = {
         "erpnext": git_latest_tag("https://github.com/frappe/erpnext", "16"),
         "hrms": git_latest_tag("https://github.com/frappe/hrms", "16"),
-        "india_compliance": git_latest_tag("https://github.com/resilient-tech/india-compliance", "16"),
+        "india_compliance_ref": "refs/heads/version-16",
+        "india_compliance_sha": git_branch_sha("https://github.com/resilient-tech/india-compliance", "version-16")
         "crm": github_latest_release("frappe", "crm"),
         "ecommerce_integrations_ref": "refs/heads/version-16",
         "ecommerce_integrations_sha": git_branch_sha("https://github.com/frappe/ecommerce_integrations", "version-16")
