@@ -1,7 +1,8 @@
 {
   "erpnext": "v16.6.0",
   "hrms": "v16.4.0",
-  "india_compliance": "v16.0.0",
+  "india_compliance": "refs/heads/version-16",
+  "india_compliance": "0f6b39ba5971278edb3a9a5c7c4eef435fff6171"
   "crm": "v1.58.5",
   "ecommerce_integrations_ref": "refs/heads/version-16",
   "ecommerce_integrations_sha": "0f6b39ba5971278edb3a9a5c7c4eef435fff6171"
