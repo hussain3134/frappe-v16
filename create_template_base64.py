@@ -3,10 +3,10 @@ import json
 
 import pyperclip
 
-with open("dokploy/docker-compose-16.yml", "r") as f:
+with open("build/docker-compose.yml", "r") as f:
     compose = f.read()
 
-with open("dokploy/template-16.toml", "r") as f:
+with open("build/template.toml", "r") as f:
     config = f.read()
 
 template_object = {"compose": compose, "config": config}
