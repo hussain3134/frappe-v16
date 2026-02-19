@@ -11,9 +11,9 @@ def main() -> int:
         versions = json.load(f)
 
     apps = [
-        {"url": "https://github.com/frappe/erpnext", "tag": versions["erpnext"]},
-        {"url": "https://github.com/frappe/hrms", "tag": versions["hrms"]},
-        {"url": "https://github.com/frappe/crm", "tag": versions["crm"]},
+        {"url": "https://github.com/frappe/erpnext", "branch": versions["erpnext"]},
+        {"url": "https://github.com/frappe/hrms", "branch": versions["hrms"]},
+        {"url": "https://github.com/frappe/crm", "branch": versions["crm"]},
         # ecommerce_integrations & india_compliance : track branch until v16 tags exist
         {"url": "https://github.com/frappe/ecommerce_integrations", "branch": "version-16"},
         {"url": "https://github.com/resilient-tech/india-compliance", "branch": "version-16"},
